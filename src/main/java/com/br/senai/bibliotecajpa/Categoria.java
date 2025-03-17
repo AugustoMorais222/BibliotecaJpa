@@ -4,8 +4,11 @@ package com.br.senai.bibliotecajpa;
 import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -23,7 +26,7 @@ public class Categoria {
 	@Column(name = "descricao", length = 100)
 	private String descricao;
 	
-	@OneToMany(mappedBy = "categoria")
+	@OneToMany(mappedBy = "categoria", fetch = FetchType.LAZY)
     private List<Livro> livros;
 
 	public Integer getId() {
