@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,12 +29,12 @@ public class CategoriaController {
     }
 
     @PostMapping
-    public Categoria saveCategoria(Categoria livro) {
+    public Categoria saveCategoria(@RequestBody Categoria livro) {
         return categoriaService.save(livro);
     }
 
     @PutMapping
-    public Categoria updateCategoria(Categoria livro) {
+    public Categoria updateCategoria(@RequestBody Categoria livro) {
         return categoriaService.update(livro);
     }
 
